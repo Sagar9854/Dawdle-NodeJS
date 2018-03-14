@@ -1,7 +1,7 @@
 var crypto = require('crypto');
 var rand = require('csprng');
 var mongoose = require('mongoose');
-var user = require('../models/modelsUser.js');
+var user = require('./models.js');
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -25,16 +25,16 @@ exports.register = function(email,password,callback) {
 			var len = users.length;
 			if(len == 0){
 				newuser.save(function (err) {
-					callback({'response':"Sucessfully Registered"});
+					callback({'response':"Sucessfully Registered", 'accept':"true", 'exist':"false"});
 				});
 			}
 			else{
-				callback({'response':"Email already registered."});
+				callback({'response':"Email already registered.", 'accept':"false", 'exist':"true"});
 			}
 		});
 
 	}
 	else{
-		callback({'response':"Email Not Valid"});
+		callback({'response':"Email Not Valid", 'accept':"false", 'exist':"false"});
 	}
 }
