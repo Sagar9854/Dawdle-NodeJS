@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dawdle</title>
+    <!--Import google icon font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <% if ( messages ) { %>
+      <%for (var msg in messages){%>
+        <div class="flash"><%= messages[msg] %></div>
+      <%}%>
+    <% } %>
+    <div class="container-fluid">
+      <div class="navbar-fixed">
+        <nav class="mynavbar">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Dawdle</a>
+            <ul class="right hide-on-med-and-down navele">
+              <li><a href="/myprofile">Myprofile</a></li>
+              <li><a href="/wlogout">Log out</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="slidde">
+        <div class="container">
+          <div class="slider">
+            <ul class="slides">
+              <li>
+                <img src="/images/slide1.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="/images/slide2.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="/images/slide3.jpg"> <!-- random image -->
+                <div class="caption right-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="/images/slide4.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/riddles.jpg" height="300px">
+              <span class="card-title">Riddles</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red" href="/wriddles"><i class="material-icons">forward</i></a>
+            </div>
+            <div class="card-content">
+              <p>A riddle is a statement or question or phrase having a double or veiled meaning, put forth as a puzzle to be solved.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/stories.jpg" height="300px">
+              <span class="card-title">Stories</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red" href="/wstories"><i class="material-icons">forward</i></a>
+            </div>
+            <div class="card-content">
+              <p>A story is a report of connected events, real or imaginary, presented in a sequence of written or spoken words, or still or moving images, or both.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="/images/qoutes.jpg" height="300px">
+              <span class="card-title">Quotes</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red" href="#"><i class="material-icons">forward</i></a>
+            </div>
+            <div class="card-content">
+              <p>A quotation can also refer to the repeated use of units of any other form of expression, especially parts of artistic works: elements of a painting, scenes from a movie or sections from a musical composition.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="page-footer teal">
+        <div class="footer-copyright">
+          <div class="container">
+            copyright &copy 2018 reserved
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script type="text/javascript">
+          $(document).ready(function(){
+      $('.slider').slider();
+    });
+        
+    </script>
+  </body>
+</html>

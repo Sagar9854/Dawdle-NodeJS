@@ -1,5 +1,5 @@
 {
-  "name": "dawdle",
+  "name": "timepass",
   "version": "1.0.0",
   "description": "WEBAPP",
   "main": "app.js",
@@ -7,9 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "*",
-    "body-parser": "*",
-    "mongoose": "*",
     "body-parser": "*",
     "cookie-parser": "*",
     "debug": "*",

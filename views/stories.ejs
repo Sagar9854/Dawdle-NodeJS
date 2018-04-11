@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stories</title>
+    <!--Import google icon font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <a href="/entry">Home</a>
+  <body>
+    <div class="container">
+      <h1>
+        Welcome to <%= title %> page !
+      </h1>
+      <div class="form-group">
+        <%for (var story in stories){%>
+          <div class="form-control">
+            <div class="row">
+              <div class="col col-lg-10">
+                <h2><%=stories[story].title%></h2>
+                <p><%=stories[story].body%></p>
+                <h6>Author : <%=stories[story].author%></h6>
+              </div>
+              <div class="col col-lg-2">
+                <%if(like==="true") {%>
+                  <form action="/myprofile/addLikeStories" method="POST" enctype="url/encoded">
+                    <input type="hidden" name="story_id" value="<%=stories[story]._id%>">
+                    <input class="btn btn-primary" type="submit" name="sumbit" value="Like">
+                  </form>
+                <%}%>
+                <p>User liked:<%=stories[story].like%></p>
+              </div>
+            </div>
+          </div>
+        <%}%>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+  </body>
+</html>

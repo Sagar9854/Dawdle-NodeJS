@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Riddles</title>
+    <!--Import google icon font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .active, .collapsible:hover {
+        background-color: #555;
+    }
+
+    .collapsible:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2212";
+    }
+
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+    }
+    </style>
+  </head>
+  <body>
+
+      <div class="container-fluid">
+        <div class="navbar-fixed">
+          <nav class="mynavbar">
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo"><%= title %></a>
+              <ul class="right hide-on-med-and-down navele">
+                <li><a href="/entry">Home</a></li>
+                <li><a href="/myprofile">Myprofile</a></li>
+                <li><a href="/wlogout">Log out</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+
+      <br>
+
+
+      <div class="row">
+        <%for (var riddle in riddles){%>
+        <div class="col s12 m12">
+          <div class="card">
+            <div class="card-content">
+              <p><%= riddles[riddle].body %></p>
+              <button class="collapsible">Show answer</button>
+              <div class="content"><p><%=riddles[riddle].answer%></p></div>
+              <%if(like === "true") {%>
+                  <form action="/myprofile/addLikeRiddles" method="POST" enctype="url/encoded">
+                    <input type="hidden" name="riddle_id" value="<%=riddles[riddle]._id%>">
+                    <input class="btn" type="submit" name="sumbit" value="Like">
+                  </form>
+                <%}%>
+                <p>Likes: <%=riddles[riddle].like%></p>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+      
+      
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+
+    </script>
+  </body>
+</html>

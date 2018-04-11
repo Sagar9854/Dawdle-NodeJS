@@ -1,7 +1,7 @@
 var crypto = require('crypto');
 var rand = require('csprng');
 var mongoose = require('mongoose');
-var user = require('./models.js');
+var user = require('../models/modelsUser.js');
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -9,6 +9,8 @@ function validateEmail(email) {
 }
 
 exports.register = function(email,password,callback) {
+	console.log("email : " + email);
+	console.log("password : " + password);
 	if(validateEmail(email)){
 		var temp = rand(160, 36);
 		var newpass = temp + password;
